@@ -1,0 +1,1 @@
+project product management  : add , edit , delete, update product, show data diagram, business analyst
