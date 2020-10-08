@@ -1,6 +1,22 @@
 import React, { Component } from "react";
 
 class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchnameInput: "",
+    };
+  }
+  searchName = () => {
+    this.props.searchProductName1(this.state.searchnameInput);
+  };
+  isChange = (e) => {
+    let value = e.target.value;
+    this.setState({
+      searchnameInput: value,
+    });
+    this.props.searchProductName1(this.state.searchnameInput);
+  };
   render() {
     return (
       <div className="search">
@@ -9,13 +25,18 @@ class Search extends Component {
             <div className="row">
               <div className="form-group col-6">
                 <input
+                  onChange={(e) => this.isChange(e)}
                   type="text"
                   className="form-control"
                   id="inputProductName"
                 />
               </div>
               <div className="col-6">
-                <button type="button" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => this.searchName()}
+                >
                   Search
                 </button>
               </div>

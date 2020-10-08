@@ -17,7 +17,7 @@ class App extends Component {
       isLogin: true,
       data: dataProduct,
       productEdit: {},
-      // productHasEdit: {},
+      searchName: "",
     };
   }
 
@@ -79,13 +79,33 @@ class App extends Component {
     });
   };
 
+  searchProductName = (productname) => {
+    this.setState({
+      searchName: productname,
+    });
+  };
+
   render() {
+    let result = [];
+
+    this.state.data.forEach((item) => {
+      if (
+        item.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !==
+        -1
+      ) {
+        result.push(item);
+      }
+    });
     return (
       <div className="container">
         <Header />
-        <Search />
+        <Search
+          searchProductName1={(searchname) =>
+            this.searchProductName(searchname)
+          }
+        />
         <DataTable
-          productlist={this.state.data}
+          productlist={result}
           deleteProduct1={(idproduct) => {
             this.deleteProduct(idproduct);
           }}
