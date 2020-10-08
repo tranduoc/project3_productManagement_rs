@@ -1,0 +1,44 @@
+[
+  {
+    "idproduct": 1,
+    "category": "Phone",
+    "name": "Iphone6",
+    "price": 1000,
+    "quantity": 100
+  },
+  {
+    "idproduct": 2,
+    "category": "Phone",
+    "name": "Hueway",
+    "price": 1000,
+    "quantity": 100
+  },
+  {
+    "idproduct": 3,
+    "category": "Phone",
+    "name": "Galaxy7",
+    "price": 1000,
+    "quantity": 100
+  },
+  {
+    "idproduct": 4,
+    "category": "Phone8",
+    "name": "Oppo F1",
+    "price": 1000,
+    "quantity": 100
+  },
+  {
+    "idproduct": 5,
+    "category": "Phone",
+    "name": "Iphone9",
+    "price": 1000,
+    "quantity": 100
+  },
+  {
+    "idproduct": 6,
+    "category": "Phone",
+    "name": "Iphone6",
+    "price": 1000,
+    "quantity": 100
+  }
+]
