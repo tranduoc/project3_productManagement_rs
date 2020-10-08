@@ -1,11 +1,38 @@
 import React, { Component } from "react";
 
 class EditProduct extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      category: "",
+      name: "",
+      price: "",
+      quantity: "",
+    };
+  }
+  isChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  onUpdate = () => {
+    this.props.updateProductEdit1(
+      this.props.productEdit1.idproduct,
+      this.state.category,
+      this.state.name,
+      this.state.price,
+      this.state.quantity
+    );
+  };
+
   render() {
     return (
       <div
         className="modal fade"
-        id="exampleModal"
+        id="ModalEditProduct"
         tabIndex={-1}
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -33,40 +60,65 @@ class EditProduct extends Component {
                   <div className="card-body text-primary">
                     <div className="form-group">
                       <input
+                        onChange={(event) => {
+                          this.isChange(event);
+                        }}
+                        defaultValue={this.props.productEdit1.idproduct}
+                        name="idproduct"
                         type="text"
                         className="form-control mb-3 "
-                        disabled="true"
                         id
                         aria-describedby="emailHelp"
                         placeholder="idProduct"
+                        disabled="true"
                       />
                       <input
+                        defaultValue={this.props.productEdit1.category}
+                        name="category"
                         type="text"
                         className="form-control mb-3"
                         id
                         aria-describedby="emailHelp"
                         placeholder="Category"
+                        onChange={(event) => {
+                          this.isChange(event);
+                        }}
                       />
                       <input
+                        defaultValue={this.props.productEdit1.name}
+                        name="name"
                         type="text"
                         className="form-control mb-3"
                         id
                         aria-describedby="emailHelp"
                         placeholder="Name Product"
+                        onChange={(event) => {
+                          this.isChange(event);
+                        }}
                       />
                       <input
+                        defaultValue={this.props.productEdit1.price}
+                        name="price"
                         type="text"
                         className="form-control mb-3"
                         id
                         aria-describedby="emailHelp"
                         placeholder="Price"
+                        onChange={(event) => {
+                          this.isChange(event);
+                        }}
                       />
                       <input
+                        defaultValue={this.props.productEdit1.quantity}
+                        name="quantity"
                         type="text"
                         className="form-control"
                         id
                         aria-describedby="emailHelp"
                         placeholder="Quantity"
+                        onChange={(event) => {
+                          this.isChange(event);
+                        }}
                       />
                     </div>
                   </div>
@@ -82,9 +134,10 @@ class EditProduct extends Component {
                 </button>
 
                 <button
-                  type="reset"
+                  type="button"
                   className="btn btn-warning"
                   data-dismiss="modal"
+                  onClick={() => this.onUpdate()}
                 >
                   Update Product
                 </button>

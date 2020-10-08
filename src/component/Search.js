@@ -26,7 +26,7 @@ class Search extends Component {
               type="button"
               className="btn btn-success"
               data-toggle="modal"
-              data-target="#exampleModal"
+              data-target="#ModalAddProduct"
             >
               Add Product
             </button>

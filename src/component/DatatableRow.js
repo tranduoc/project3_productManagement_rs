@@ -4,23 +4,31 @@ class DatatableRow extends Component {
   render() {
     return (
       <tr>
-        <th>No</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Mark</td>
-        <td>Otto</td>
+        <th>{this.props.number}</th>
+        <td>{this.props.idproduct}</td>
+        <td>{this.props.category}</td>
+        <td>{this.props.name}</td>
+        <td>{this.props.price}</td>
+        <td>{this.props.quantity}</td>
         <td>
           <div className="form-group">
             <button
-              type="button"
               className="btn btn-warning"
+              onClick={() => {
+                this.props.showProductEdit2();
+              }}
               data-toggle="modal"
-              data-target="#exampleModal"
+              data-target="#ModalEditProduct"
             >
               Edit
             </button>
-            <button type="button" className="btn btn-danger">
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => {
+                this.props.deleteProduct2(this.props.idproduct);
+              }}
+            >
               Delete
             </button>
           </div>
